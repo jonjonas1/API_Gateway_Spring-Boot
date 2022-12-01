@@ -1,0 +1,21 @@
+server:
+  port: 8083
+
+spring:
+ application:
+   name: API_GATEWAY
+
+cloud:
+  gateway:
+   routes:
+     - id: Employee_Data
+       uri:
+        lb: //Employee_Data
+       predicates: 
+         - PATH=/empoyee/**
+
+     - id: Student_Data
+       uri:
+        lb: //Student_Data
+       predicates: 
+         - PATH=/student/**
